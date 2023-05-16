@@ -1,6 +1,0 @@
-{"id":1,"title":"Manzanas","description":"Fruta","price":1600,"url":"url1","code":"001","stock":90}
-{"id":1,"title":"Peras","description":"Frutas","price":1200,"url":"url2","code":"002","stock":80}
-{"id":1,"title":"Papas","description":"Verdura","price":1500,"url":"url3","code":"003","stock":120}
-{"id":1,"title":"Lechugas","description":"Verduras","price":1100,"url":"url4","code":"004","stock":50}
-{"id":1,"title":"Lomo","description":"Carnes","price":9000,"url":"url5","code":"005","stock":70}
-{"id":1,"title":"Salmon","description":"Pescados","price":22000,"url":"url6","code":"006","stock":150}

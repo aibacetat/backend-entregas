@@ -7,5 +7,14 @@
         "code": "ABC123",
         "stock": 60,
         "id": 1
+    },
+    {
+        "title": "Producto 1",
+        "descripcion": "Descripción del producto 1",
+        "price": 10.99,
+        "thumbnail": "ruta/imagen1.jpg",
+        "code": "ABC123",
+        "stock": 50,
+        "id": 2
     }
 ]
