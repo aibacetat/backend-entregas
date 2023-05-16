@@ -1,0 +1,11 @@
+[
+    {
+        "title": "Producto 1 (modificado)",
+        "descripcion": "Descripción del producto 1 (modificado)",
+        "price": 12.99,
+        "thumbnail": "ruta/imagen1_modificada.jpg",
+        "code": "ABC123",
+        "stock": 60,
+        "id": 1
+    }
+]
