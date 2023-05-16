@@ -70,4 +70,3 @@ return response;
 const item = getProductById(7);
 console.log(item);
   showAllProducts();
-
