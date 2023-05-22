@@ -1,101 +1,43 @@
-const fs = require('fs');
+const express = require(`express`);
 
-class Contenedor {
-    constructor(archivo) {
-        this.archivo = archivo;
-    }
+const Contenedor = require(`../Desafio2/Desafio2.js`);
 
-    async read() {
+const app = express();
+
+const PORT = 8080;
+
+let myContenedor = new Contenedor(`productos.txt`);
+
+app.get(`/`, (req, res) => {
+    res.send(`<h3> Desafío Nº3 - Servidores Web </h3>`);
+});
+
+app.get(`/productos`, (req, res) => {
+    ; (async () => {
         try {
-            let data = await fs.promises.readFile(`./${this.archivo}`, `utf-8`);
-            return data;
-
+            let data = await myContenedor.getAll();
+            res.send(data);
         } catch (err) {
-            throw Error(`Error al leer el archivo ${err}`);
+            console.error(err);
         }
-    }
+    })();
+});
 
-    async write(datos, msg) {
+app.get(`/productoRandom`, (req, res) => {
+    ; (async () => {
         try {
-            await fs.promises.writeFile(`./${this.archivo}`, JSON.stringify(datos, null, 2));
-            console.log(msg);
+            let allData = await myContenedor.getAll();
+            let random = Math.trunc(Math.random() * ((allData.length) - 0) + 0);
+            let dataRandom = await myContenedor.getById(random);
+            res.send(dataRandom);
         } catch (err) {
-            throw Error(`Error al escribir en el archivo ${err}`);
+            console.error(err);
         }
-    }
+    })();
+});
 
-    async save(product) {
-        let newId = 1;
-        let newProduct = {};
+const server = app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
+});
 
-        let data = await this.read();
-        let datos = JSON.parse(data);
-
-        if (!data) {
-            product.id = newId;
-            newProduct = [product];
-        } else {
-            product.id = datos[datos.length - 1].id + 1;
-            newProduct = product;
-        }
-        datos.push(newProduct);
-
-        await this.write(datos, `Agregado!`);
-    }
-
-    async getById(myId) {
-        let data = await this.read();
-        let datos = JSON.parse(data);
-
-        let result = datos.filter(product => product.id == myId);
-        return result;
-    }
-
-    async getAll() {
-        let data = await this.read();
-        let datos = JSON.parse(data);
-
-        return datos;
-    }
-
-    async deleteById(myId) {
-        let data = await this.read();
-        let datos = JSON.parse(data);
-
-        let product = datos.find(product => product.id == myId);
-        if (product) {
-            let index = datos.indexOf(product);
-            console.log(index);
-            datos.splice(index, 1);
-            await this.write(datos, `Producto con ID: ${myId} eliminado`);
-        } else {
-            console.log(`Producto con ID: ${myId} no existe`);
-        }
-    }
-
-    async deleteAll() {
-        let data = [];
-        await this.write(data, `Se eliminaron todos los productos`);
-    }
-}
-module.exports = Contenedor;
-
-/*
-let contenedor = new Contenedor(`/productos.txt`);
-
-async function test() {
-    const newProduct = {
-        title: `Producto`,
-        price: 11111,
-        thumbnail: `link`
-    };
-    await contenedor.save(newProduct);
-
-    console.table(await contenedor.getById(2));
-
-    console.table(await contenedor.getAll());
-
-    await contenedor.deleteById(7);
-}
-test();
-*/
+server.on(`Error`, (error) => console.log(`Error en servidor: ${error}`));
