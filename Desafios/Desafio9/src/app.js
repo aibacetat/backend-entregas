@@ -43,7 +43,7 @@ app.use(cookieParser())
 
 app.use(session({
     store: create({
-        mongoUrl: 'mongodb+srv://CoderUser:1234@ecommerce.5odsxhx.mongodb.net/?retryWrites=true&w=majority',
+        mongoUrl: 'mongodb+srv://admmongo:Pa$$w0rd123.@ecommerce.4v4b28p.mongodb.net/?retryWrites=true&w=majority',
         mongoOptions: {
             useNewUrlParser: true,
             useUnifiedTopology: true
