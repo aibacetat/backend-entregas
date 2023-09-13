@@ -107,7 +107,7 @@ class UserController {
                 const token = generateTokenResetPassword(userDB)
 
                 let result = await transport.sendMail({
-                    from: 'Recover Password <agustingomezdev@gmail.com>',
+                    from: 'Recover Password <snackimpact@gmail.com>',
                     to: email,
                     subject: 'Recover password',
                     html: `
@@ -233,7 +233,7 @@ class UserController {
                 await userService.delete(user._id)
 
                 transport.sendMail({
-                    from: 'Account deleted <agustingomezdev@gmail.com>',
+                    from: 'Account deleted <snackimpact@gmail.com>',
                     to: user.email,
                     subject: 'Your account has been deleted',
                     html: `
