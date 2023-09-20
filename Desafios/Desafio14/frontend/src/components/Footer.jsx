@@ -98,7 +98,7 @@ export const Footer = () => {
         <div className='bg-[#f3f3f3] py-2'>
             <div className='container mx-auto flex-col md:flex-row gap-3 flex justify-between items-center'>
                 <p><span className='mr-1'>&copy;</span>2023 All Rights Reserved</p>
-                <p>Software developed by <a className='text-myGreen hover:text-myLightGreen' target='__blank' href="https://github.com/aibacetat/backend-entregas">aibacet</a></p>
+                <p>Software developed by <a className='text-myGreen hover:text-myLightGreen' target='__blank' href="https://github.com/aibacetat/backend-entregas">IcarusDev</a></p>
             </div>
         </div>
     </>
