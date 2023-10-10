@@ -11,7 +11,7 @@
     "start": "node src/app.js --mode production"
   },
   "keywords": [],
-  "author": "Agustín Gómez",
+  "author": "aibacetdev",
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "^8.0.2",
